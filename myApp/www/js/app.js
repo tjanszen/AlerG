@@ -5,7 +5,7 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
+angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', 'ngCordova'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -30,15 +30,15 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
   $stateProvider
 
   // setup an abstract state for the tabs directive
-  .state('tab', {url: "/tab", abstract: true, templateUrl: "templates/tabs.html"})
+  .state('tab', {url: "/tab", abstract: true, templateUrl: "templates/tabs/tabs.html"})
 
   // Each tab has its own nav history stack:
 
-  .state('tab.home', {url: '/home', views: {'tab-home': {templateUrl: 'templates/tab-home.html', controller: 'HomeCtrl'}}})
+  .state('tab.home', {url: '/home', views: {'tab-home': {templateUrl: 'templates/home/tab-home.html', controller: 'HomeCtrl'}}})
 
-  .state('tab.scan', {url: '/scan', views: {'tab-scan': {templateUrl: 'templates/tab-scan.html', controller: 'ScanCtrl'}}})
+  .state('tab.scan', {url: '/scan', views: {'tab-scan': {templateUrl: 'templates/scan/tab-scan.html', controller: 'ScanCtrl'}}})
 
-  .state('tab.account', {url: '/account', views: {'tab-account': {templateUrl: 'templates/tab-account.html', controller: 'AccountCtrl'}}});
+  .state('tab.account', {url: '/account', views: {'tab-account': {templateUrl: 'templates/account/tab-account.html', controller: 'AccountCtrl'}}});
 
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/tab/home');
