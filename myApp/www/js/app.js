@@ -36,9 +36,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
 
   .state('tab.home', {url: '/home', views: {'tab-home': {templateUrl: 'templates/tab-home.html', controller: 'HomeCtrl'}}})
 
-  .state('tab.chats', {url: '/chats', views: {'tab-chats': {templateUrl: 'templates/tab-chats.html', controller: 'ChatsCtrl'}}})
-
-  .state('tab.chat-detail', {url: '/chats/:chatId', views: {'tab-chats': {templateUrl: 'templates/chat-detail.html', controller: 'ChatDetailCtrl'}}})
+  .state('tab.scan', {url: '/scan', views: {'tab-scan': {templateUrl: 'templates/tab-scan.html', controller: 'ScanCtrl'}}})
 
   .state('tab.account', {url: '/account', views: {'tab-account': {templateUrl: 'templates/tab-account.html', controller: 'AccountCtrl'}}});
 

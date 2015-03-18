@@ -1,16 +1,15 @@
 angular.module('starter.controllers', [])
 
-.controller('HomeCtrl', function($scope) {})
-
-.controller('ChatsCtrl', function($scope, Chats) {
-  $scope.chats = Chats.all();
-  $scope.remove = function(chat) {
-    Chats.remove(chat);
-  }
+.controller('HomeCtrl', function($scope) {
+  console.log('made it to the HomeCtrl');
 })
 
-.controller('ChatDetailCtrl', function($scope, $stateParams, Chats) {
-  $scope.chat = Chats.get($stateParams.chatId);
+.controller('ScanCtrl', function($scope) {
+  console.log('made it to the ScanCtrl');
+})
+
+.controller('ScanDetailCtrl', function($scope, $stateParams, Scans) {
+  $scope.scan = Scans.get($stateParams.scanId);
 })
 
 .controller('AccountCtrl', function($scope) {
