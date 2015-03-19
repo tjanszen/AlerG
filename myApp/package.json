@@ -18,6 +18,7 @@
     {
       "id": "com.mirasense.scanditsdk.plugin",
       "locator": "../../scandit/scandit"
-    }
+    },
+    "org.apache.cordova.dialogs"
   ]
 }
