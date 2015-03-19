@@ -1,17 +1,28 @@
 angular.module('starter.scan-controllers', [])
 
-.controller('ScanCtrl', ['$scope', '$cordovaBarcodeScanner', '$cordovaDialogs', '$ionicPlatform', function($scope, $cordovaBarcodeScanner, $cordovaDialogs, $ionicPlatform) {
+.controller('ScanCtrl', ['$scope', '$rootScope', '$cordovaBarcodeScanner', '$cordovaDialogs', '$ionicPlatform', 'Scans', function($scope, $rootScope, $cordovaBarcodeScanner, $cordovaDialogs, $ionicPlatform, Scans) {
 
+  $scope.testing = function(data){
+    Scans.scanning(data)
+    .then(function(response){
+    })
+  }
+
+  $rootScope.shit = "shit";
   $scope.scanner = function(){
     $ionicPlatform.ready(function() {
 
       $cordovaBarcodeScanner
        .scan()
        .then(function(barcodeData) {
-         console.log(barcodeData);
+         $rootScope.data = barcodeData.text;
+         $rootScope.type = barcodeData.type;
          // Success! Barcode data is here
+         Scans.scanning($rootScope.data)
+         .then(function(response){
+         })
        }, function(error) {
-         // An error occurred
+         $rootScope.err = error;
        });
 
 
