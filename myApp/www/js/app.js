@@ -5,7 +5,7 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'starter.account-controllers', 'starter.home-controllers', 'starter.scan-controllers', 'ngCordova', 'starter.services'])
+angular.module('starter', ['satellizer', 'ui.router','ionic', 'starter.account-controllers', 'starter.home-controllers', 'starter.scan-controllers', 'starter.users-controllers',  'ngCordova', 'starter.services'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -21,7 +21,7 @@ angular.module('starter', ['ionic', 'starter.account-controllers', 'starter.home
   });
 })
 
-.config(function($stateProvider, $urlRouterProvider) {
+.config([ '$authProvider', '$stateProvider', '$urlRouterProvider', function($authProvider, $stateProvider, $urlRouterProvider) {
 
   // Ionic uses AngularUI Router which uses the concept of states
   // Learn more here: https://github.com/angular-ui/ui-router
@@ -35,12 +35,13 @@ angular.module('starter', ['ionic', 'starter.account-controllers', 'starter.home
   // Each tab has its own nav history stack:
 
   .state('tab.home', {url: '/home', views: {'tab-home': {templateUrl: 'templates/home/tab-home.html', controller: 'HomeCtrl'}}})
-
   .state('tab.scan', {url: '/scan', views: {'tab-scan': {templateUrl: 'templates/scan/tab-scan.html', controller: 'ScanCtrl'}}})
+  .state('tab.account', {url: '/account', views: {'tab-account': {templateUrl: 'templates/account/tab-account.html', controller: 'AccountCtrl'}}})
 
-  .state('tab.account', {url: '/account', views: {'tab-account': {templateUrl: 'templates/account/tab-account.html', controller: 'AccountCtrl'}}});
+  .state('register', {url: '/register', templateUrl: 'templates/users/users.html', controller: 'UsersCtrl'});
+
 
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/tab/home');
 
-});
+}]);
