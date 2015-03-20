@@ -1,5 +1,19 @@
+var moment = require('moment');
+var User = require('../models/user');
+
 module.exports = {
-  password: 'yabba dabba',
-  cookie: 'snickerdoodle',
-  isSecure: false
+  key: process.env.TOKEN_SECRET,
+  validateFunc: function(jwt, cb){
+    console.log('token is ', jwt);
+    var current = moment().unix();
+    if(current < jwt.iat || current > jwt.exp){
+      return cb();
+    }
+
+    User.findById(jwt.sub, function(err, user){
+      if(err || !user){return cb();}
+
+      cb(null, true, user);
+    });
+  }
 };
