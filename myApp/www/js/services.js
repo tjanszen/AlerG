@@ -7,7 +7,7 @@ angular.module('starter.services', [])
 
   function scanning(upc){
     console.log('This is the variable passed into SCANNING', upc);
-    return $http.get('http://192.168.5.52:8080/scans/' + upc);
+    return $http.get('http://192.168.1.15:8080/scans/' + upc);
   }
 
   return {scanning:scanning};
