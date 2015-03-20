@@ -1,13 +1,23 @@
 <ion-view view-title="AlerG">
   <ion-content class="padding">
-  <button class="button button-light" ng-click='scanner()'>
-    Start Scanning
-  </button>
-  <p>
-    The product name is {{product.product_name}}
-  </p>
-  <p>
-    The brand is {{product.brand}}
-  </p>
+    <button class="button button-light" ng-click='scanner()'>
+      <i class='ion-ios-barcode-outline'></i>
+    </button>
+    <div class="list card">
+
+      <div class="item">
+        <h2>{{product.brand}}</h2>
+        <p>{{product.product_name}}</p>
+      </div>
+
+      <div class="item item-image">
+        <img ng-src='{{product.image_urls[0]}}'/>
+      </div>
+
+      <a class="item item-icon-left assertive" href="#">
+        <i class="icon ion-archive"></i>
+        Save For Later!
+      </a>
+    </div>
   </ion-content>
 </ion-view>

@@ -2,3 +2,28 @@
 .ion-home-strong{
   color: #fff;
 }
+
+
+/* Homepage */
+button.button.button-light {
+  margin-left: 32%;
+  border: none;
+}
+
+i.ion-ios-barcode-outline {
+  font-size: 125px;
+}
+
+h2 {
+  text-align: center;
+}
+
+p {
+  text-align: center;
+}
+
+.item-image img:first-child, .item-image .list-img {
+  width: 50%;
+  vertical-align: middle;
+  padding: 20px 0;
+}
